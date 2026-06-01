@@ -37,12 +37,13 @@ public:
 	RE::BGSTextureSet* defaultLandTexture;
 	bool enabled = false;
 
+	virtual void Load() override;
 	virtual void DataLoaded() override;
 	virtual void PostPostLoad() override;
 	virtual bool SupportsVR() override { return true; };
 	virtual std::string GetFeatureModLink() override { return MakeNexusModURL(MOD_ID); }
 
-	void SetShaderResouces(ID3D11DeviceContext* a_context);
+	void SetShaderResources(ID3D11DeviceContext* a_context);
 	bool TESObjectLAND_SetupMaterial(RE::TESObjectLAND* land);
 	void BSLightingShader_SetupMaterial(RE::BSLightingShaderMaterialBase const* material);
 };

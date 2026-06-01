@@ -1263,7 +1263,7 @@ struct TESForm_SetFormEditorID
 	{
 		auto* singleton = &globals::features::truePBR;
 		singleton->editorIDs[form->GetFormID()] = editorId;
-		return true;
+		return func(form, editorId);
 	}
 	static inline REL::Relocation<decltype(thunk)> func;
 };
@@ -1529,7 +1529,7 @@ void TruePBR::SetupDefaultPBRLandTextureSet()
 	}
 }
 
-void TruePBR::SetShaderResouces(ID3D11DeviceContext* a_context)
+void TruePBR::SetShaderResources(ID3D11DeviceContext* a_context)
 {
 	uint32_t mask = extendedRendererState.PSResourceModifiedBits;
 
